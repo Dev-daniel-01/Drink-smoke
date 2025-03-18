@@ -47,6 +47,6 @@
         "id":8,
         "descricao":"Felicidade!",
         "imagem": "../Assets/felicidade.png",
-        "preco": 150.0
+        "preco": 100.0
     }
 ]
