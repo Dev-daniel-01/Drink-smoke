@@ -13,4 +13,4 @@ carrinho,
 Bigode: login
 Mat: Loja
 Leo: Carrinho
-Dan: Assets e dados 
+Dan: dados e showroom 
