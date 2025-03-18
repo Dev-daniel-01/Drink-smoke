@@ -2,27 +2,27 @@
     {
         "id":1,
         "descricao":"Sextou!",
-        "imagem": "../Assets/sextou.png",
+        "imagem": "../Assets/sextou.webp",
         "preco": 400.0
     },
 
     {
         "Id":2,
         "descricao":"Sabadou!!",
-        "imagem": "../Assets/sabado.png", 
+        "imagem": "../Assets/sabadouu.jfif", 
         "preco": 350.0
     },
 
     {
         "id":3,
         "descricao":"Domingão!",
-        "imagem": "../Assets/domingo.png",
+        "imagem": "../Assets/domingoo.webp",
         "preco": 300.0
     },
     {
         "id":4,
         "descricao":"Papo de Bar!",
-        "imagem": "../Assets/Combo-Heineken.webp",
+        "imagem": "../Assets/cerveja.png",
         "preco": 150.0
     },
     {
@@ -34,7 +34,7 @@
     {
         "id":6,
         "descricao":"Final de mês!",
-        "imagem": "../Assets/final-mes.png",
+        "imagem": "../Assets/finaldomes.webp",
         "preco": 50.0
     },
     {
