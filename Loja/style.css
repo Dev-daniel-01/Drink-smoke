@@ -1,3 +1,41 @@
 *{
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+
+body{
+    height: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px; 
+}
+.card{
+    width: 18rem !important;
+    border: 2px solid  #000000 !important;
+    margin: 10px;
+    background-image: url(../Assets/fundo\ madeira.jpg);
+}
+.card-img-top{
+    background-size: cover;
+    background-position: center;
+}
+.card-title{
+    color: white !important;
+}
+.card-text{
+    color: white !important;
+}
+
+
+
