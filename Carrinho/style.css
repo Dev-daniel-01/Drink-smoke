@@ -4,7 +4,7 @@ padding: 0;
 }
 
 body{
-    background-color: rgb(34, 34, 34);
+    background-color: black;
 }
 
 #pedido{
@@ -15,10 +15,18 @@ body{
     transform: translate(-50%, -50%);
     padding: 50px;
     border-radius: 90px;
-    background-color: goldenrod;
+    background-color: red;
     color: white;
     font-size: 1.4rem;
     border: 2px solid white;
+}
+
+.retornarloja{
+    margin-left: 10px;
+}
+
+.retornarloja img {
+    margin-top: 10px;
 }
 
 .container{
@@ -31,7 +39,7 @@ body{
 }
 
 h1{
-    background-color: goldenrod;
+    background-color: red;
     color: white;
     display: flex;
     align-items: center;
@@ -43,7 +51,7 @@ h1{
 }
 
 .dinheiro{
-    background-color: goldenrod;
+    background-color: red;
     color: white;
     display: flex;
     align-items: center;
@@ -55,7 +63,7 @@ h1{
 }
 
 .document{
-    background-color: goldenrod;
+    background-color: red;
     color: white;
     display: flex;
     align-items: center;
@@ -68,6 +76,6 @@ h1{
 
 .document:hover {
     color: white;
-    border: 2px solid goldenrod;
+    border: 2px solid red;
     background: black;
 }
