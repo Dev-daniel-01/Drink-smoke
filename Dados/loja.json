@@ -2,21 +2,21 @@
     {
         "id":1,
         "descricao":"Sextou!",
-        "Imagem": "../Assets/sexta.png",
+        "imagem": "../Assets/sextou.png",
         "preco": 400.0
     },
 
     {
         "Id":2,
         "descricao":"Sabadou!!",
-        "Imagem": "../Assets/sabado.png", 
+        "imagem": "../Assets/sabado.png", 
         "preco": 350.0
     },
 
     {
         "id":3,
         "descricao":"Domingão!",
-        "Imagem": "../Assets/domingo.png",
+        "imagem": "../Assets/domingo.png",
         "preco": 250.0
     }
 ]
