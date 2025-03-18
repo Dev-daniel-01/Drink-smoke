@@ -1,5 +1,10 @@
 *{
 margin: 0;
+padding: 0;
+}
+
+body{
+    background-color: rgb(34, 34, 34);
 }
 
 #pedido{
@@ -9,8 +14,60 @@ margin: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 50px;
+    border-radius: 90px;
     background-color: goldenrod;
     color: white;
     font-size: 1.4rem;
+    border: 2px solid white;
+}
 
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+}
+
+h1{
+    background-color: goldenrod;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16rem;
+    height: 8vh;
+    border: 2px solid white ;
+    border-radius: 10px;
+}
+
+.dinheiro{
+    background-color: goldenrod;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 4vh;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.document{
+    background-color: goldenrod;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 4vh;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.document:hover {
+    color: white;
+    border: 2px solid goldenrod;
+    background: black;
 }

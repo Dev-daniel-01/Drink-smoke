@@ -12,16 +12,21 @@
 </head>
 
 <body>
-    <a href="../Loja/">Continuar comprando</a>
-    <h1>Carrinho</h1>
-    <div id="lista"></div>
-    <h2 id="total"></h2>
-    <button onclick="gerarDocumentoWord()">AAAAAAAAAAAAAAAAAAAAAAAA</button>
-    <p id="pedido">
-        pedido gerado com sucesso
-        <button id="sc" onclick="successClose()">❌</button>
-    </p>
-
+    <a class="retornarloja" href="../Loja/">./Assets/carrinho-de-compras.png</a>
+    <div class="container">
+        <h1>Carrinho</h1>
+        <div class="compras">
+            <div id="lista"></div>
+        </div>
+        <div class="dinheiro">
+            <h2 id="total"></h2>
+        </div>
+        <button class="document" onclick="gerarDocumentoWord()">Realizar pedido</button>
+        <p id="pedido">
+            pedido gerado com sucesso
+                <button id="sc" onclick="successClose()">❌</button>
+        </p>
+    </div>
     <script src="script.js"></script>
 </body>
 
