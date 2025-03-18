@@ -9,17 +9,23 @@
     <script src="script.js"></script>
 </head>
 <body>
-   
+    
     <div class="container">
-        <img src="../Assets/Imagens/Versace.png" alt="logo" class="logo">
-        
-        <input type="text" placeholder="Insira seu nome" id="nome">
-        <div style="position: relative;">
-            <input type="password" placeholder="Insira sua senha" id="senha">
-            <span onclick="showPassword()" class="key">👁</span>
+        <div class="primeira">
+            <img src="../Assets/logo.png" alt="logo" class="logo">
         </div>
-        <button onclick="login()">Entrar</button>
+     
+        <div class="segunda">
+            <input type="text" placeholder="Insira seu nome" id="nome">
+            <div style="position: relative;">
+                <input type="password" placeholder="Insira sua senha" id="senha">
+                <span onclick="showPassword()" class="key">👁</span>
+            </div>
+            <button onclick="login()">Entrar</button>
+        </div>
+       
     </div>
+
     <div class="error-div" id="error-modal">
         <h3>Credenciais incorretas!!!</h3>
         <button onclick="fecharError()">Fechar</button>
