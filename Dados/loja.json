@@ -1,5 +1,22 @@
 [
     {
-        
+        "id":1,
+        "descricao":"Sextou!",
+        "Imagem": "../Assets/Imagens/perfume1.webp",
+        "preco": 100.0
+    },
+
+    {
+        "Id":2,
+        "descricao":"Sabadou!!",
+        "Imagem": "../Assets/Imagens/perfume2.webp", 
+        "preco": 202.0
+    },
+
+    {
+        "id":3,
+        "descricao":"Domingão!",
+        "Imagem": "../Assets/Imagens/perfume3.webp",
+        "preco": 500.0
     }
 ]
