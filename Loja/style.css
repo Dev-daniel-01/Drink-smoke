@@ -18,8 +18,24 @@ body{
     flex-wrap: wrap;
     width: 100%;
     height: auto;
-    padding: 10px;
-    
+    padding: 10px; 
 }
+.card{
+    width: 18rem !important;
+    border: 2px solid  #000000 !important;
+    margin: 10px;
+    background-image: url(../Assets/fundo\ madeira.jpg);
+}
+.card-img-top{
+    background-size: cover;
+    background-position: center;
+}
+.card-title{
+    color: white !important;
+}
+.card-text{
+    color: white !important;
+}
+
 
 

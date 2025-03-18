@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             produtos.forEach((produto, index) => {
                 const card = document.createElement("div")
                 card.className = "card"
-                card.style.width = "18rem"
-                card.style.margin = "10px"
+                
                 
 
                 const imagem = document.createElement("img")
