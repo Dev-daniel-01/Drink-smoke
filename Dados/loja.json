@@ -17,6 +17,36 @@
         "id":3,
         "descricao":"Domingão!",
         "imagem": "../Assets/domingo.png",
-        "preco": 250.0
+        "preco": 300.0
+    },
+    {
+        "id":4,
+        "descricao":"Papo de Bar!",
+        "imagem": "../Assets/Combo-Heineken.webp",
+        "preco": 150.0
+    },
+    {
+        "id":5,
+        "descricao":"Amansa loko!",
+        "imagem": "../Assets/Amansa-loko.jfif",
+        "preco": 150.0
+    },
+    {
+        "id":6,
+        "descricao":"Final de mês!",
+        "imagem": "../Assets/final-mes.png",
+        "preco": 50.0
+    },
+    {
+        "id":7,
+        "descricao":"Tubão!",
+        "imagem": "../Assets/tubao.png",
+        "preco": 40.0
+    },
+    {
+        "id":8,
+        "descricao":"Felicidade!",
+        "imagem": "../Assets/felicidade.png",
+        "preco": 150.0
     }
 ]
