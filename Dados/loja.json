@@ -48,5 +48,17 @@
         "descricao":"Felicidade!",
         "imagem": "../Assets/felicidade.png",
         "preco": 100.0
+    },
+    {
+        "id":9,
+        "descricao":"Combo Familia!",
+        "imagem": "../Assets/combo.jpg",
+        "preco": 50.0
+    },
+    {
+        "id":10,
+        "descricao":"Supremoo!",
+        "imagem": "../Assets/supremo.jpeg",
+        "preco": 65.0
     }
 ]

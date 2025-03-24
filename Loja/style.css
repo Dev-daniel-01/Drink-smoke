@@ -3,11 +3,24 @@
     margin: 0;
     box-sizing: border-box;
 }
+.navbar{
+    border: 2px solid white;
+    border-radius: 15px;
+}
+.navbar-brand{
+    color: white !important;
+}
+.nav-link{
+    color: white !important;
+}
 
 body{
     height: auto;
     overflow-x: hidden;
     padding: 20px;
+    background-image: url(../Assets/salaLoja.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .wrap{
@@ -17,24 +30,38 @@ body{
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    height: auto;
+    height: 1000px;
     padding: 10px; 
+    margin-left: 38px;
+    
 }
+
 .card{
     width: 18rem !important;
     border: 2px solid  #000000 !important;
     margin: 10px;
     background-image: url(../Assets/fundo\ madeira.jpg);
+    transition: all 150ms ease-in-out;
+    transform: scale(1);
+}
+.card:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
 }
 .card-img-top{
     background-size: cover;
-    background-position: center;
+    background-position: center; 
+    margin-top: 10px;
 }
 .card-title{
     color: white !important;
 }
 .card-text{
     color: white !important;
+}
+.card-img-top{
+    border: 2px solid white !important;
+    padding: 1px;
 }
 
 

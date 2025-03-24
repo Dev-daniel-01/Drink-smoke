@@ -1,15 +1,15 @@
-let produtos
-
 window.onload = function () {
     var storedUser = localStorage.getItem("usuario")
     var user = JSON.parse(storedUser)
+    
+    // Atualiza as informações do usuário na navbar
     document.getElementById("user").textContent = user.name
     document.getElementById("perfil").textContent = user.name
     document.getElementById("idPerfil").textContent = user.id
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    //fetch dos produtos e armazenamento na variavel global
+    // Fetch dos produtos e armazenamento na variável global
     fetch("../Dados/loja.json")
         .then((response) => response.json())
         .then((data) => {
@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const card = document.createElement("div")
                 card.className = "card"
                 
-                
-
                 const imagem = document.createElement("img")
                 imagem.src = produto.imagem
                 imagem.className = "card-img-top"
@@ -55,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => console.error("Erro ao carregar o arquivo JSON", error))
 
-        //Manipulador de eventos para o botao "Adicionar ao carrinho"
-        $("#produtos-container").on("click", ".btn-adicionar-ao-carrinho", function(){
-            const indexDoProduto = $(this).data("indice")
-            const produtoSelecionado = produtos[indexDoProduto]
-            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-            carrinho.push(produtoSelecionado)
-            localStorage.setItem("carrinho", JSON.stringify(carrinho))
-            alert("Produto adicionado ao carrinho")
-        })
+    // Manipulador de eventos para o botão "Adicionar ao carrinho"
+    $("#produtos-container").on("click", ".btn-adicionar-ao-carrinho", function(){
+        const indexDoProduto = $(this).data("indice")
+        const produtoSelecionado = produtos[indexDoProduto]
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        carrinho.push(produtoSelecionado)
+        localStorage.setItem("carrinho", JSON.stringify(carrinho))
+        alert("Produto adicionado ao carrinho")
+    })
 })
