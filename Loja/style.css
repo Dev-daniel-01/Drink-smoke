@@ -5,9 +5,10 @@
 }
 .navbar{
     border: 2px solid white;
-    border-radius: 15px;
-    width: 90vw;
+    
+    width: 100%;
     height: auto;
+    
 }
 .navbar-brand{
     color: white !important;
@@ -17,25 +18,27 @@
 }
 
 body{
-    width: 100vw;
     height: auto;
     overflow-x: hidden;
     padding: 20px;
-    background-image: url(../Assets/salaLoja.jpg);
+    background-image: url(../Assets/distribuidora.png);
     background-size: cover;
     background-position: center;
 }
 
 .wrap{
+  
+    min-height: 100vh;
+    height: auto;
+    padding: 50px 0px; 
+}
+
+#produtos-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100vw;
-    height: 1000px;
-    padding: 10px; 
-    margin: 20px;
 }
 
 .card{
@@ -64,6 +67,15 @@ body{
 .card-img-top{
     border: 2px solid white !important;
     padding: 1px;
+}
+@media(width < 500px){
+     .navbar{
+        width: 95%;
+    }
+    .wrap{
+        margin-left: 15px;
+    }
+   
 }
 
 
