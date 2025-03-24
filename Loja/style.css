@@ -6,6 +6,8 @@
 .navbar{
     border: 2px solid white;
     border-radius: 15px;
+    width: 90vw;
+    height: auto;
 }
 .navbar-brand{
     color: white !important;
@@ -15,6 +17,7 @@
 }
 
 body{
+    width: 100vw;
     height: auto;
     overflow-x: hidden;
     padding: 20px;
@@ -29,11 +32,10 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 100vw;
     height: 1000px;
     padding: 10px; 
-    margin-left: 38px;
-    
+    margin: 20px;
 }
 
 .card{
