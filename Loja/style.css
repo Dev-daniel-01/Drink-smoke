@@ -5,7 +5,6 @@
 }
 .navbar{
     border: 2px solid white;
-    
     width: 100%;
     height: auto;
     
@@ -14,7 +13,18 @@
     color: white !important;
 }
 .nav-link{
-    color: white !important;
+    width: 200px;
+    text-align: center;
+    color: white !important;  
+}
+
+
+.meio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70vw;
 }
 
 body{
@@ -70,10 +80,14 @@ body{
 }
 @media(width < 500px){
      .navbar{
-        width: 95%;
+        width: 100%;
     }
     .wrap{
         margin-left: 15px;
+    }
+    .meio{
+        display: flex;
+        justify-content: left;
     }
    
 }
