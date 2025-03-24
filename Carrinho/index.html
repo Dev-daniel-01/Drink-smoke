@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,23 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.0.1/mammoth.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="titulo">Carrinho
-            <a class="retornarloja" href="../Loja/">↩</a>
-        </h1>
-        <div class="compras">
-            <div id="lista"></div>
-        </div>
-        <div class="dinheiro">
-            <h2 id="total"></h2>
-        </div>
-        <button class="document" onclick="gerarDocumentoWord()">Realizar pedido</button>
-        <p id="pedido">
-            pedido gerado com sucesso
-                <button id="sc" onclick="successClose()">❌</button>
-        </p>
+    <nav>
+        <a href="../Loja" class="retornarloja">
+            <img src="../Assets/loja.png" alt="Carrinho" class="cart-icon" width="35px" height="35px">
+        </a>
+        <h1>Carrinho</h1>
+    </nav>
+    <div id="carrinho-container">
+        <div id="lista"></div>
+        <h2 id="total"></h2>
+        <button onclick="gerarDocumentoWord()">Realizar pedido</button>
     </div>
+        <p id="pedido" style="display: none">
+            Pedido gerado com sucesso
+            <button id="sc" onclick="successClose()">❌</button>
+        </p>
     <script src="script.js"></script>
 </body>
 
