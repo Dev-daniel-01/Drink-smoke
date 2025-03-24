@@ -13,21 +13,34 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="../Carrinho">Ir para carrinho</a>
-    <br>
-    <div>
-        <h4 id="perfil"></h4>
-        <div class="idPerfil">
-            Protocolo atual: <p id="idPerfil"></p>
+
+   
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Loja de Produtos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+            
+                    <div class="meio">
+                <li class="nav-item">
+                    <a class="nav-link">Bem-vindo <span id="user"></span></a>
+                </li>
+            </div>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Carrinho">Ir para Carrinho</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <h1>LOJA</h1>
-    <p>Bem vindo <span id="user"></span> , escolha seus produtos!</p>
-    <br>
-    <h2>Produtos</h2>
-    <br>
+    </nav>
     <div class="wrap">
         <div id="produtos-container" class="row center"></div>
     </div>
+
 </body>
 </html>

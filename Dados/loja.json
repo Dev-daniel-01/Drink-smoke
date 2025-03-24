@@ -46,7 +46,19 @@
     {
         "id":8,
         "descricao":"Felicidade!",
-        "imagem": "../Assets/felicidade.png",
-        "preco": 100.0
+        "imagem": "../Assets/cervejaaGuinness.webp",
+        "preco": 50.0
+    },
+    {
+        "id":9,
+        "descricao":"Coxão Molhe!",
+        "imagem": "../Assets/carnes.avif",
+        "preco": 80.0
+    },
+    {
+        "id":10,
+        "descricao":"Carne Angus!",
+        "imagem": "../Assets/carneAngus.png",
+        "preco": 2820.0
     }
 ]

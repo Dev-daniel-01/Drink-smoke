@@ -14,8 +14,8 @@ function login(){
         window.location.href = "../loja/"
     }else{
         document.getElementById("error-modal").style.display = "flex"
-        document.getElementById("nome").style.border = "2px solid lightpink"
-        document.getElementById("senha").style.border = "2px solid lightpink"
+        document.getElementById("nome").style.border = "2px solid red"
+        document.getElementById("senha").style.border = "2px solid red"
     }
 }
 

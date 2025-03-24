@@ -38,7 +38,6 @@ body{
     align-items: center;
     gap: 2vh;
     position: relative;
-   
 }
 
 .segunda{
@@ -92,7 +91,7 @@ button:hover{
     gap: 2vw;
     width: 50%;
     min-width: 300px;
-    background-color: lightpink;
+    background-color: rgb(255, 0, 38);
     color: var(--escuro);
     padding: 5px;
     position: absolute;
@@ -110,4 +109,31 @@ button:hover{
     width: 100px;
     background-color: var(--branco);
     border: 2px solid var(--branco);
+}
+
+@media (max-width: 600px) {
+
+    .segunda{
+        width: 100%;
+    }
+.container{
+   
+    background-color: #000000;
+    border: 2px solid var(--branco);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: all 400ms ease-in-out;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    position: relative;
+}
+    .logo{
+        width: 150px; 
+        height: auto; 
+        display: flex;
+        
+    }
 }

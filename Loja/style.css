@@ -3,38 +3,93 @@
     margin: 0;
     box-sizing: border-box;
 }
+.navbar{
+    border: 2px solid white;
+    width: 100%;
+    height: auto;
+    
+}
+.navbar-brand{
+    color: white !important;
+}
+.nav-link{
+    width: 200px;
+    text-align: center;
+    color: white !important;  
+}
+
+
+.meio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70vw;
+}
 
 body{
     height: auto;
     overflow-x: hidden;
     padding: 20px;
+    background-image: url(../Assets/distribuidora.png);
+    background-size: cover;
+    background-position: center;
 }
 
 .wrap{
+  
+    min-height: 100vh;
+    height: auto;
+    padding: 50px 0px; 
+}
+
+#produtos-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    padding: 10px; 
 }
+
 .card{
     width: 18rem !important;
     border: 2px solid  #000000 !important;
     margin: 10px;
     background-image: url(../Assets/fundo\ madeira.jpg);
+    transition: all 150ms ease-in-out;
+    transform: scale(1);
+}
+.card:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
 }
 .card-img-top{
     background-size: cover;
-    background-position: center;
+    background-position: center; 
+    margin-top: 10px;
 }
 .card-title{
     color: white !important;
 }
 .card-text{
     color: white !important;
+}
+.card-img-top{
+    border: 2px solid white !important;
+    padding: 1px;
+}
+@media(width < 500px){
+     .navbar{
+        width: 100%;
+    }
+    .wrap{
+        margin-left: 15px;
+    }
+    .meio{
+        display: flex;
+        justify-content: left;
+    }
+   
 }
 
 
