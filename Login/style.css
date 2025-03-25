@@ -17,14 +17,15 @@
 
 
 body{
+    margin-top: 35vh;
     background-image: url("../Assets/fundo.jpg");
-    height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     background-size: cover;
-    color: var(--branco)
+    color: var(--branco);
 }
 
 .container{
@@ -37,7 +38,8 @@ body{
     justify-content: center;
     align-items: center;
     gap: 2vh;
-    position: relative;
+    margin-bottom: 32.17vh;
+    
 }
 
 .segunda{
@@ -112,11 +114,12 @@ button:hover{
 }
 
 footer {
+    margin-top: auto;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-   gap: 20px;
+    gap: 20px;
     background-color: #000000;
     min-height: 80px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -139,6 +142,19 @@ footer img:hover{
     .segunda{
         width: 100%;
     }
+
+    body{
+        margin-top: 22.4vh;
+        background-image: url("../Assets/fundo.jpg");
+        max-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+        color: var(--branco);
+    }
+
 .container{
    
     background-color: #000000;
@@ -152,6 +168,46 @@ footer img:hover{
     align-items: center;
     gap: 2vh;
     position: relative;
+}
+    .logo{
+        width: 150px; 
+        height: auto; 
+        display: flex;
+        
+    }
+}
+
+@media (max-width: 375px) {
+
+    .segunda{
+        width: 100%;
+    }
+
+    body{
+        margin-top: 20vh;
+        background-image: url("../Assets/fundo.jpg");
+        max-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-size: cover;
+        color: var(--branco);
+    }
+
+.container{
+    background-color: #000000;
+    border: 2px solid var(--branco);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: all 400ms ease-in-out;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    position: relative;
+    margin-bottom: 26.4vh;
 }
     .logo{
         width: 150px; 
