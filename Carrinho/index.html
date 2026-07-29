@@ -1,41 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.0.1/mammoth.browser.min.js"></script>
+    <title>Drink &amp; Smoke | Carrinho</title>
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../Assets/theme.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="../Loja" class="retornarloja">
-            <img src="../Assets/loja.png" alt="Carrinho" class="cart-icon" width="35px" height="35px">
-        </a>
-        <h1>Carrinho</h1>
-    </nav>
-    <div id="carrinho-container">
-        <div id="lista"></div>
-        <h2 id="total"></h2>
-        <button onclick="gerarDocumentoWord()">Realizar pedido</button>
-    </div>
-        <p id="pedido" style="display: none">
-            Pedido gerado com sucesso
-            <button id="sc" onclick="successClose()">❌</button>
-        </p>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../Loja">
+                <img src="../Assets/logo.png" alt="Drink and Smoke">
+                <span>Drink &amp; Smoke</span>
+            </a>
+
+            <div class="site-header__actions">
+                <div class="user-chip">
+                    <span class="user-chip__avatar" id="user-avatar">?</span>
+                    <span class="user-chip__name">Bem-vindo, <strong id="user"></strong></span>
+                </div>
+                <a class="icon-link" href="../Loja" aria-label="Voltar para a loja">
+                    <img class="icon-invert" src="../Assets/loja.png" alt="Loja">
+                </a>
+                <button class="btn-icon btn-outline btn" id="logout-btn" title="Sair" aria-label="Sair">⏻</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-bg cart-bg">
+        <div class="cart-wrap">
+            <h1 class="cart-title">Seu Carrinho</h1>
+
+            <div id="carrinho-container">
+                <div id="lista"></div>
+
+                <div class="cart-empty" id="cart-empty">
+                    <p class="cart-empty__icon">🛒</p>
+                    <p>Seu carrinho está vazio.</p>
+                    <a class="btn" href="../Loja">Ver produtos</a>
+                </div>
+
+                <div class="cart-summary" id="cart-summary">
+                    <h2 id="total"></h2>
+                    <button class="btn" id="finalizar-btn" onclick="gerarPedidoPDF()">Realizar pedido</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <a target="_blank" href="https://www.instagram.com/"><img src="../Assets/instagram.png" alt="Instagram"></a>
+            <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img src="../Assets/facebook.png" alt="Facebook"></a>
+            <a target="_blank" href="https://x.com/?lang=pt"><img src="../Assets/twitter.png" alt="Twitter"></a>
+            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img src="../Assets/whatsapp.png" alt="whatsapp"></a>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="../Assets/ui.js"></script>
     <script src="script.js"></script>
-
-    <footer>
-        <a target="_blank" href="https://www.instagram.com/"><img width="30px" height="auto" src="../Assets/instagram.png"
-            alt="Instagram"></a>
-        <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img width="30px" height="auto" src="../Assets/facebook.png"
-            alt="Facebook"></a>
-        <a target="_blank" href="https://x.com/?lang=pt"><img height="auto" src="../Assets/twitter.png"
-            alt="Twitter"></a>
-            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img height="auto" src="../Assets/whatsapp.png"
-                alt="whatsapp"></a> 
-      </footer>
 </body>
-
 </html>

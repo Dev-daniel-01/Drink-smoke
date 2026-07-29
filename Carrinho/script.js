@@ -1,165 +1,157 @@
-$(document).ready(function() {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    const listElement = $("#lista");
-    const totalElement = $("#total");
+const cartUser = requireLogin("../Login/")
+
+$(document).ready(function () {
+    if (!cartUser) return
+
+    document.getElementById("user").textContent = cartUser.name
+    document.getElementById("user-avatar").textContent = initials(cartUser.name)
+    document.getElementById("logout-btn").addEventListener("click", () => logout("../Login/"))
+
+    const listElement = $("#lista")
+    const totalElement = $("#total")
+    const emptyState = $("#cart-empty")
+    const summary = $("#cart-summary")
+
+    function agruparItens() {
+        const carrinho = getCarrinho()
+        const contadorItens = {}
+        $.each(carrinho, function (index, item) {
+            const chave = `${item.descricao}-${item.preco}-${item.imagem}`
+            if (contadorItens[chave]) {
+                contadorItens[chave].quantidade++
+            } else {
+                contadorItens[chave] = { ...item, quantidade: 1 }
+            }
+        })
+        return contadorItens
+    }
 
     function exibirCarrinho() {
-        listElement.empty();
-        let totalPreco = 0;
-        const contadorItens = {};
+        listElement.empty()
+        let totalPreco = 0
+        const contadorItens = agruparItens()
+        const temItens = Object.keys(contadorItens).length > 0
 
-        // Agrupa itens iguais contando as quantidades
-        $.each(carrinho, function(index, item) {
-            const chave = `${item.descricao}-${item.preco}-${item.imagem}`;
-            if (contadorItens[chave]) {
-                contadorItens[chave].quantidade++;
-            } else {
-                contadorItens[chave] = { ...item, quantidade: 1 };
-            }
-        });
+        emptyState.css("display", temItens ? "none" : "flex")
+        summary.css("display", temItens ? "flex" : "none")
 
-        // Exibe cada item com sua quantidade
-        $.each(contadorItens, function(chave, item) {
-            const listItem = $("<li>").text(
-                `${item.descricao} - Preço: $${item.preco} - Quantidade: ${item.quantidade}`
-            );
+        $.each(contadorItens, function (chave, item) {
+            const subtotal = item.preco * item.quantidade
+            totalPreco += subtotal
 
-            const removeButton = $("<button>")
-                .text("❌")
-                .css("margin-left", "10px")
-                .click(function() {
-                    removerItemDoCarrinho(item);
-                });
+            const listItem = $(`
+                <div class="cart-item">
+                    <img class="cart-item__img" src="${item.imagem}" alt="${item.descricao}">
+                    <div class="cart-item__info">
+                        <p class="cart-item__name">${item.descricao}</p>
+                        <p class="cart-item__unit">R$ ${item.preco.toFixed(2)} / un.</p>
+                    </div>
+                    <div class="cart-item__stepper">
+                        <button type="button" class="menos" aria-label="Diminuir quantidade">−</button>
+                        <span>${item.quantidade}</span>
+                        <button type="button" class="mais" aria-label="Aumentar quantidade">+</button>
+                    </div>
+                    <p class="cart-item__subtotal">R$ ${subtotal.toFixed(2)}</p>
+                    <button type="button" class="cart-item__remove" aria-label="Remover item">✕</button>
+                </div>
+            `)
 
-            listItem.append(removeButton);
-            listElement.append(listItem);
-            totalPreco += item.preco * item.quantidade;
-        });
+            listItem.find(".menos").on("click", () => removerItemDoCarrinho(item))
+            listItem.find(".mais").on("click", () => adicionarItemAoCarrinho(item))
+            listItem.find(".cart-item__remove").on("click", () => removerTodosDoCarrinho(item))
 
-        totalElement.text(`Total: $${totalPreco}`);
+            listElement.append(listItem)
+        })
+
+        totalElement.text(`Total: R$ ${totalPreco.toFixed(2)}`)
+        updateCartBadge()
     }
-    
+
     function removerItemDoCarrinho(item) {
-        // Encontra o índice do item no carrinho
-        const index = carrinho.findIndex(i => 
-            i.descricao === item.descricao && 
-            i.preco === item.preco && 
-            i.imagem === item.imagem
-        );
-        
+        const carrinho = getCarrinho()
+        const index = carrinho.findIndex(
+            (i) => i.descricao === item.descricao && i.preco === item.preco && i.imagem === item.imagem
+        )
         if (index !== -1) {
-            carrinho.splice(index, 1);
-            localStorage.setItem("carrinho", JSON.stringify(carrinho));
-            exibirCarrinho();
+            carrinho.splice(index, 1)
+            localStorage.setItem("carrinho", JSON.stringify(carrinho))
+            exibirCarrinho()
         }
     }
 
-    exibirCarrinho();
-});
+    function removerTodosDoCarrinho(item) {
+        const carrinho = getCarrinho().filter(
+            (i) => !(i.descricao === item.descricao && i.preco === item.preco && i.imagem === item.imagem)
+        )
+        localStorage.setItem("carrinho", JSON.stringify(carrinho))
+        exibirCarrinho()
+    }
 
-function gerarDocumentoWord() {
-    const listElement = document.getElementById("lista");
-    const totalElement = document.getElementById("total");
+    function adicionarItemAoCarrinho(item) {
+        const { quantidade, ...produto } = item
+        const carrinho = getCarrinho()
+        carrinho.push(produto)
+        localStorage.setItem("carrinho", JSON.stringify(carrinho))
+        exibirCarrinho()
+    }
 
-    const listaClone = listElement.cloneNode(true);
-    
-    // Remove botões de remover
-    $(listaClone).find("button").remove();
+    window.gerarPedidoPDF = function () {
+        const contadorItens = agruparItens()
+        if (Object.keys(contadorItens).length === 0) {
+            showToast("Seu carrinho está vazio", "error")
+            return
+        }
 
-    const listaHtml = listaClone.innerHTML;
-    const totalHtml = totalElement.innerHTML;
+        let totalPreco = 0
+        const linhas = []
+        $.each(contadorItens, function (chave, item) {
+            const subtotal = item.preco * item.quantidade
+            totalPreco += subtotal
+            linhas.push([item.descricao, String(item.quantidade), `R$ ${item.preco.toFixed(2)}`, `R$ ${subtotal.toFixed(2)}`])
+        })
 
-    const conteudoHtml = `
-    <html>
-        <head>
-            <meta charset="UTF-8" />
-            <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 30px;
-                padding: 0;
-                background-color: #f8f8f8;
-                color: #333;
-            }
-            h1 {
-                color: #c0392b; /* Vermelho */
-                text-align: center;
-                margin-bottom: 40px;
-                border-bottom: 3px solid #ecf0f1;
-                padding-bottom: 10px;
-                font-size: 2rem;
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 30px;
-                background-color: #fff;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            table, th, td {
-                border: 1px solid #ddd;
-            }
-            th, td {
-                padding: 12px 18px;
-                text-align: left;
-                font-size: 1rem;
-            }
-            th {
-                background-color: #e74c3c;
-                color: white;
-                font-weight: bold;
-            }
-            td {
-                background-color: #f9f9f9;
-            }
-            .total {
-                text-align: center;
-                font-weight: bold;
-                font-size: 1.5rem;
-                color: #333;
-                margin-top: 20px;
-                border-top: 2px solid black; /* Borda preta sólida */
-                padding-top: 20px;
-            }
-            .footer {
-                margin-top: 40px;
-                text-align: center;
-                font-size: 0.9rem;
-                color: #7f8c8d;
-            }
-            </style>
-        </head>
-        <body>
-            <h1>Pedido Confirmado</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nota Fiscal</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${listaHtml}
-                </tbody>
-            </table>
-            <p class="total">${totalHtml}</p>
-            <div class="footer">
-                <p>Obrigado por comprar conosco!</p>
-                <p>Seu pedido será processado em breve.</p>
-            </div>
-        </body>
-    </html>
-`;
+        const { jsPDF } = window.jspdf
+        const doc = new jsPDF()
 
-    const blob = new Blob([conteudoHtml], { type: "application/msword" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "Carrinho.doc";
-    link.click();
+        doc.setFillColor(227, 32, 47)
+        doc.rect(0, 0, 210, 26, "F")
+        doc.setTextColor(255, 255, 255)
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(18)
+        doc.text("Drink & Smoke", 14, 13)
+        doc.setFont("helvetica", "normal")
+        doc.setFontSize(11)
+        doc.text("Pedido confirmado", 14, 21)
 
-    document.getElementById("pedido").style.display = "block";
-}
+        doc.setTextColor(60, 60, 60)
+        doc.setFontSize(10)
+        doc.text(`Cliente: ${cartUser.name}`, 14, 34)
+        doc.text(`Data: ${new Date().toLocaleString("pt-BR")}`, 14, 40)
 
-function successClose() {
-    document.getElementById("pedido").style.display = "none";
-}
+        doc.autoTable({
+            startY: 46,
+            head: [["Produto", "Qtd.", "Preço unit.", "Subtotal"]],
+            body: linhas,
+            headStyles: { fillColor: [227, 32, 47], textColor: 255 },
+            styles: { fontSize: 10, cellPadding: 3 },
+            theme: "striped",
+        })
+
+        const finalY = doc.lastAutoTable.finalY + 10
+        doc.setFontSize(13)
+        doc.setFont("helvetica", "bold")
+        doc.setTextColor(20, 20, 20)
+        doc.text(`Total: R$ ${totalPreco.toFixed(2)}`, 14, finalY)
+
+        doc.setFontSize(9)
+        doc.setFont("helvetica", "normal")
+        doc.setTextColor(130, 130, 130)
+        doc.text("Obrigado por comprar conosco! Seu pedido sera processado em breve.", 14, finalY + 10)
+
+        doc.save("Pedido.pdf")
+
+        showToast("Pedido gerado em PDF!", "success")
+    }
+
+    exibirCarrinho()
+})

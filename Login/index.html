@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Drink &amp; Smoke | Login</title>
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../Assets/theme.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="script.js"></script>
 </head>
 <body>
-    
-    <div class="container">
-        <div class="primeira">
-            <img src="../Assets/logo.png" alt="logo" class="logo">
-        </div>
-     
-        <div class="segunda">
-            <input type="text" placeholder="Insira seu nome" id="nome">
-            <div style="position: relative;">
-                <input type="password" placeholder="Insira sua senha" id="senha">
-                <span onclick="showPassword()" class="key">👁</span>
+
+    <div class="login-page page-bg">
+        <div class="login-page__content">
+            <div class="login-card">
+                <div class="login-card__brand">
+                    <img src="../Assets/logo.png" alt="Drink and Smoke">
+                    <p class="login-card__tagline">Distribuidora &amp; Açougue</p>
+                </div>
+
+                <form class="login-card__form" onsubmit="event.preventDefault(); login();">
+                    <label class="field">
+                        <span class="field__icon">👤</span>
+                        <input type="text" placeholder="Insira seu nome" id="nome" autocomplete="username">
+                    </label>
+
+                    <label class="field">
+                        <span class="field__icon">🔒</span>
+                        <input type="password" placeholder="Insira sua senha" id="senha" autocomplete="current-password">
+                        <span onclick="showPassword()" class="field__toggle" role="button" aria-label="Mostrar senha">👁</span>
+                    </label>
+
+                    <button type="submit" class="btn">Entrar</button>
+                </form>
             </div>
-            <button onclick="login()">Entrar</button>
+
+            <div class="error-toast" id="error-modal">
+                <span class="toast__icon">⚠️</span>
+                <span>Credenciais incorretas!</span>
+                <button class="btn-ghost" onclick="fecharError()" aria-label="Fechar">✕</button>
+            </div>
         </div>
-       
+
+        <footer class="site-footer">
+            <a target="_blank" href="https://www.instagram.com/"><img src="../Assets/instagram.png" alt="Instagram"></a>
+            <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img src="../Assets/facebook.png" alt="Facebook"></a>
+            <a target="_blank" href="https://x.com/?lang=pt"><img src="../Assets/twitter.png" alt="Twitter"></a>
+            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img src="../Assets/whatsapp.png" alt="whatsapp"></a>
+        </footer>
     </div>
 
-    <div class="error-div" id="error-modal">
-        <h3>Credenciais incorretas!!!</h3>
-        <button onclick="fecharError()">Fechar</button>
-    </div>
-
-    <footer>
-        <a target="_blank" href="https://www.instagram.com/"><img width="30px" height="auto" src="../Assets/instagram.png"
-            alt="Instagram"></a>
-        <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img width="30px" height="auto" src="../Assets/facebook.png"
-            alt="Facebook"></a>
-        <a target="_blank" href="https://x.com/?lang=pt"><img height="auto" src="../Assets/twitter.png"
-            alt="Twitter"></a>
-            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img height="auto" src="../Assets/whatsapp.png"
-                alt="whatsapp"></a> 
-      </footer>
+    <script src="script.js"></script>
 </body>
 </html>
