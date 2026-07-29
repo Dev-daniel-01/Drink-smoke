@@ -1,55 +1,59 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Produtos</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="script.js"></script>
+    <title>Drink &amp; Smoke | Loja</title>
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../Assets/theme.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 <body>
 
-   
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Loja de Produtos</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-            
-                    <div class="meio">
-                <li class="nav-item">
-                    <a class="nav-link">Bem-vindo <span id="user"></span></a>
-                </li>
-            </div>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Carrinho">Ir para Carrinho</a>
-                    </li>
-                </ul>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="./">
+                <img src="../Assets/logo.png" alt="Drink and Smoke">
+                <span>Drink &amp; Smoke</span>
+            </a>
+
+            <div class="site-header__actions">
+                <div class="user-chip">
+                    <span class="user-chip__avatar" id="user-avatar">?</span>
+                    <span class="user-chip__name">Bem-vindo, <strong id="user"></strong></span>
+                </div>
+                <a class="icon-link" href="../Carrinho" aria-label="Ir para o carrinho">
+                    <img src="../Assets/carrinho-de-compras.png" alt="Carrinho">
+                    <span class="badge-count" id="cart-badge" style="display:none">0</span>
+                </a>
+                <button class="btn-icon btn-outline btn" id="logout-btn" title="Sair" aria-label="Sair">⏻</button>
             </div>
         </div>
-    </nav>
-    <div class="wrap">
-        <div id="produtos-container" class="row center"></div>
-    </div>
-    <footer>
-        <a target="_blank" href="https://www.instagram.com/"><img width="30px" height="auto" src="../Assets/instagram.png"
-            alt="Instagram"></a>
-        <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img width="30px" height="auto" src="../Assets/facebook.png"
-            alt="Facebook"></a>
-        <a target="_blank" href="https://x.com/?lang=pt"><img height="auto" src="../Assets/twitter.png"
-            alt="Twitter"></a>
-            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img height="auto" src="../Assets/whatsapp.png"
-                alt="whatsapp"></a> 
-      </footer>
+    </header>
+
+    <main class="page-bg shop-bg">
+        <div class="shop-hero">
+            <p class="shop-hero__eyebrow">Distribuidora &amp; Açougue</p>
+            <h1>Nossos Produtos</h1>
+        </div>
+
+        <div class="wrap">
+            <div id="produtos-container" class="produtos-grid"></div>
+        </div>
+
+        <footer class="site-footer">
+            <a target="_blank" href="https://www.instagram.com/"><img src="../Assets/instagram.png" alt="Instagram"></a>
+            <a target="_blank" href="https://www.facebook.com/?locale=pt_BR"><img src="../Assets/facebook.png" alt="Facebook"></a>
+            <a target="_blank" href="https://x.com/?lang=pt"><img src="../Assets/twitter.png" alt="Twitter"></a>
+            <a target="_blank" href="https://www.whatsapp.com/?lang=pt_BR"><img src="../Assets/whatsapp.png" alt="whatsapp"></a>
+        </footer>
+    </main>
+
+    <script src="../Assets/ui.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
